@@ -1,0 +1,17 @@
+int findMaxFruits(vector<int> &arr, int n) {
+    // Write your code here.
+    int ans=0;
+    unordered_map<int,int> mp;
+    for(int l=0, r=0;r<n;r++)
+    {
+        mp[arr[r]]++;
+        while(mp.size()>2)
+        {
+            if(--mp[arr[l]]==0)
+            mp.erase(arr[l]);
+            ++l;
+        }
+        ans=max(ans,r-l+1);
+    }
+    return ans;
+}

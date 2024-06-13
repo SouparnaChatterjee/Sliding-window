@@ -19,3 +19,28 @@ int longestSubSeg(vector<int> &arr , int n, int k){
     }
     return maxlen;
 }
+
+
+
+
+//using single pointer--> leetcode
+
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+       int count=0;
+       int n=nums.size();
+       int maxLen=0;
+       for(int i=0;i<n;i++) 
+       {
+        if(nums[i]==1)
+        {count++;
+        maxLen=max(maxLen,count);}
+        else if(nums[i]==0)
+        {maxLen=max(maxLen,count);
+        count=0;}
+       }
+       return maxLen;
+    }
+    
+};
